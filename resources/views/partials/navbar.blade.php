@@ -11,7 +11,7 @@
             TokoOnline
         </a>
 
-        {{-- Mobile Toggle --}}
+
         <button class="navbar-toggler" type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarMain">
@@ -33,6 +33,7 @@
                     </button>
                 </div>
             </form>
+        </div>
 
             {{-- Right Menu --}}
             <ul class="navbar-nav ms-auto align-items-center">
