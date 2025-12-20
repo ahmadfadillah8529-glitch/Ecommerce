@@ -10,6 +10,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
@@ -56,7 +57,7 @@ Route::middleware(['auth', 'admin'])
     ->group(function () {
 
         // /admin/dashboard
-        Route::get('/dashboard', [AdminController::class, 'dashboard'])
+        Route::get('/dashboard', [DashboardController::class, 'Dashboard'])
             ->name('dashboard');
         // ↑ Nama lengkap route: admin.dashboard
         // ↑ URL: /admin/dashboard
