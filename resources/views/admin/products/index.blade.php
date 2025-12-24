@@ -3,16 +3,16 @@
 @section('title', 'Daftar Produk')
 
 @section('content')
-<div class="d-flex justify-content-between align-items-center mb-4">
+<div class="d-flex justify-content-center align-items-center mb-4 pt-3">
     <h2 class="h3 text-gray-800">Daftar Produk</h2>
-    <a href="{{ route('admin.products.create') }}" class="btn btn-primary">
+    <a href="{{ route('admin.products.create') }}" class="btn btn-primary ms-5">
         <i class="bi bi-plus-lg"></i> Tambah Produk
     </a>
 </div>
 
 {{-- Filter --}}
-<form method="GET" class="row g-2 mb-4">
-    <div class="col-md-4">
+<form method="GET" class="row g-2 mb-4 justify-content-center ">
+    <div class="col-md-4 align-items-center">
         <input type="text" name="search" class="form-control" placeholder="Cari produk..."
             value="{{ request('search') }}">
     </div>
@@ -31,10 +31,10 @@
     </div>
 </form>
 
-<div class="card shadow-sm border-0">
-    <div class="table-responsive">
-        <table class="table table-hover align-middle mb-0">
-            <thead class="table-light">
+<div class="card shadow-sm border-0 col-lg-12 justify-content-center align-items-center">
+    <div class="table-responsive ">
+        <table class="table table-hover align-middle mb-0" >
+            <thead class="table">
                 <tr>
                     <th>Gambar</th>
                     <th>Nama</th>

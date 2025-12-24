@@ -7,7 +7,7 @@
     <div class="col-lg-9">
 
         {{-- Header --}}
-        <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-4 p-4">
             <h2 class="h3 mb-0 fw-bold text-info">
                 <i class="bi bi-eye me-1"></i> Detail Produk
             </h2>

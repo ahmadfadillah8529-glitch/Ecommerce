@@ -5,6 +5,9 @@
 @section('title', 'Wishlist Saya')
 
 @section('content')
+ <a href="{{ route('catalog.index') }}" class="btn btn-outline-secondary w-15 mt-2 ms-5">
+     <i class="bi bi-arrow-left me-2"></i>Lanjut Belanja
+ </a>
 <div class="container py-5">
     <h1 class="h3 fw-bold mb-4">Wishlist Saya</h1>
 
