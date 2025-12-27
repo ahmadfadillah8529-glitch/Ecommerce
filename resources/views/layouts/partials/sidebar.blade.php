@@ -80,6 +80,11 @@
                 <div data-i18n="Basic" class="text-dark">Kategori</div>
               </a>
             </li>
-
+            <li class="menu-item">
+              <a href="/admin/orders" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-clipboard text-dark"></i>
+                <div data-i18n="Basic" class="text-dark">Pesanan</div>
+              </a>
+            </li>
           </ul>
         </aside>

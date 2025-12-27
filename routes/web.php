@@ -56,11 +56,11 @@ Route::middleware('auth')->group(function () {
         ->name('profile.update');
 
     // Payment Routes
-    Route::get('/orders/{order}/pay', [PaymentController::class, 'show'])
+    Route::get('/orders/{order}/pay', [OrderController::class, 'show'])
         ->name('orders.pay');
-    Route::get('/orders/{order}/success', [PaymentController::class, 'success'])
+    Route::get('/orders/{order}/success', [OrderController::class, 'success'])
         ->name('orders.success');
-    Route::get('/orders/{order}/pending', [PaymentController::class, 'pending'])
+    Route::get('/orders/{order}/pending', [OrderController::class, 'pending'])
         ->name('orders.pending');
 });
 
