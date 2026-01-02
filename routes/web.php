@@ -70,7 +70,7 @@ Route::middleware(['auth', 'admin'])
     ->group(function () {
 
         // /admin/dashboard
-        Route::get('/dashboard', [DashboardController::class, 'Dashboard'])
+        Route::get('/dashboard', [DashboardController::class, 'index'])
             ->name('dashboard');
         // ↑ Nama lengkap route: admin.dashboard
         // ↑ URL: /admin/dashboard
