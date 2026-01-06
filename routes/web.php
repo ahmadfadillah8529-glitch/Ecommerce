@@ -41,13 +41,14 @@ Route::get('produk/{id}', function ($id){
 })->name('produk.detail');
 Auth::routes();
 
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
 Route::middleware('auth')->group(function () {
     // Semua route di dalam group ini HARUS LOGIN
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
         ->name('home');
-    // ↑ ->name('home') = Memberi nama route
-    // Kegunaan: route('home') akan menghasilkan URL /home
+    
 
     Route::get('/profile', [ProfileController::class, 'edit'])
         ->name('profile.edit');
@@ -56,6 +57,8 @@ Route::middleware('auth')->group(function () {
         ->name('profile.update');
 
     // Payment Routes
+    Route::get('/orders/{order}/pay', [PaymentController::class, 'getSnapToken'])
+        ->name('orders.pay');
     Route::get('/orders/{order}/pay', [OrderController::class, 'show'])
         ->name('orders.pay');
     Route::get('/orders/{order}/success', [OrderController::class, 'success'])
@@ -151,13 +154,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
     Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
 
+    // Payment Routes
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+    Route::get('/orders/{order}/success', [OrderController::class, 'success'])->name('orders.success');
+    Route::get('/orders/{order}/pending', [OrderController::class, 'pending'])->name('orders.pending');
+
     // Profil
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Katalog Produk
 Route::get('/products', [CatalogController::class, 'index'])->name('catalog.index');

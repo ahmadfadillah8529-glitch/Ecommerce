@@ -82,16 +82,18 @@
             </div>
         </div>
     </div>
-
     <div class="row g-4">
-        {{-- 2. Revenue Chart --}}
+       {{-- 2. Revenue Chart --}}
         <div class="col-lg-8">
             <div class="card border-0 shadow-sm h-100">
                 <div class="card-header bg-white py-3">
                     <h5 class="card-title mb-0">Grafik Penjualan (7 Hari)</h5>
                 </div>
                 <div class="card-body">
-                    <canvas id="revenueChart" height="100"></canvas>
+                    {{-- Wrapper dengan tinggi tetap agar chart tidak kebesaran --}}
+                    <div style="position: relative; height: 400px; width: 100%;">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
@@ -150,6 +152,17 @@
         </div>
     </div>
 
+     {{-- Custom CSS untuk warna ungu --}}
+    <style>
+        .border-purple { border-color: #6f42c1 !important; }
+        .text-purple { color: #6f42c1 !important; }
+        .bg-purple { background-color: #6f42c1 !important; }
+
+        .border-indigo { border-color: #6610f2 !important; }
+        .text-indigo { color: #6610f2 !important; }
+        .bg-indigo { background-color: #6610f2 !important; }
+    </style>
+
     {{-- Script Chart.js --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
@@ -162,17 +175,20 @@
         new Chart(ctx, {
             type: 'line', // Jenis grafik: Line chart
             data: {
-                labels: labels,
+               labels: labels,
                 datasets: [{
                     label: 'Pendapatan (Rp)',
                     data: data,
-                    borderColor: '#0d6efd', // Bootstrap Primary Color
-                    backgroundColor: 'rgba(13, 110, 253, 0.1)',
-                    borderWidth: 2,
-                    tension: 0.3, // Membuat garis sedikit melengkung (smooth)
+                    borderColor: '#6f42c1',                    // Garis ungu
+                    backgroundColor: 'rgba(111, 66, 193, 0.1)', // Area fill ungu transparan
+                    borderWidth: 3,
+                    tension: 0.4,
                     fill: true,
-                    pointRadius: 4,
-                    pointHoverRadius: 6
+                    pointRadius: 5,
+                    pointHoverRadius: 8,
+                    pointBackgroundColor: '#6f42c1',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2
                 }]
             },
             options: {

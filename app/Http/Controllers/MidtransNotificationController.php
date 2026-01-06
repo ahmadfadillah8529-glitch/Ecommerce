@@ -6,8 +6,8 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Payment;
 use Illuminate\Http\Request;
-use App\Events\OrderPaidEvent;
 use Illuminate\Support\Facades\Log;
+use App\Events\OrderPaidEvent;
 
 class MidtransNotificationController extends Controller
 {
@@ -169,6 +169,7 @@ class MidtransNotificationController extends Controller
         // Update Order
         $order->update([
             'status' => 'processing', // Siap diproses/dikirim
+            'payment_status' => 'paid', // Tandai sudah dibayar
         ]);
 
         // Update Payment
@@ -179,8 +180,8 @@ class MidtransNotificationController extends Controller
             ]);
         }
 
-        // TODO: Kirim email konfirmasi pembayaran
-        // event(new PaymentSuccessful($order));
+        // Trigger event untuk kirim email konfirmasi pembayaran
+        event(new OrderPaidEvent($order));
     }
 
     /**
@@ -236,12 +237,5 @@ class MidtransNotificationController extends Controller
         }
 
         // TODO: Logic tambahan untuk refund
-    }
-    private function setSuccess(Order $order)
-    {
-        $order->update([...]);
-    
-        // Fire & Forget
-        event(new OrderPaidEvent($order));
     }
 }
