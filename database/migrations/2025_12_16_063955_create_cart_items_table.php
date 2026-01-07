@@ -20,7 +20,7 @@ return new class extends Migration
                   ->constrained()
                   ->cascadeOnDelete();
             $table->integer('quantity')->default(1);
-            $table->unique('cart_id', 'product_id');
+            $table->unique(['cart_id', 'product_id']);
             $table->timestamps();
         });
     }

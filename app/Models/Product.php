@@ -37,6 +37,12 @@ class Product extends Model
         'is_featured' => 'boolean',
     ];
 
+    public function getFinalPriceAttribute()
+    {
+        return $this->discount_price ?? $this->price;
+    }
+
+
     // ==================== RELATIONSHIPS ====================
 
     /**

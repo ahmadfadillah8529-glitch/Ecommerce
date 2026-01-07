@@ -82,8 +82,14 @@
             </li>
             <li class="menu-item">
               <a href="/admin/orders" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-clipboard text-dark"></i>
+                <i class="menu-icon tf-icons bx bx-send text-dark"></i>
                 <div data-i18n="Basic" class="text-dark">Pesanan</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="/admin/reports/sales" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-flag text-dark"></i>
+                <div data-i18n="Basic" class="text-dark">Report</div>
               </a>
             </li>
           </ul>

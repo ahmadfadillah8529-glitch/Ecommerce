@@ -98,7 +98,7 @@
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
                                     <a class="dropdown-item text-primary" href="{{ route('admin.dashboard') }}">
-                                        <i class="bi bi-speedometer2 me-2"></i> Admin Panel
+                                        <i class="bi bi-speedometer2 me-2"></i>Dashboard Admin
                                     </a>
                                 </li>
                             @endif

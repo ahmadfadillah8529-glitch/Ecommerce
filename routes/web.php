@@ -108,6 +108,10 @@ Route::middleware(['auth', 'admin'])
     // Produk
     Route::resource('products', ProductController::class);
 
+      // Laporan Penjualan
+    Route::get('/reports/sales', [\App\Http\Controllers\Admin\ReportController::class, 'sales'])->name('reports.sales');// Tambahkan ini:
+    Route::get('/reports/exportSales', [\App\Http\Controllers\Admin\ReportController::class, 'exportSales'])->name('reports.exportSales');
+
 });
 
 Route::controller(GoogleController::class)->group(function () {
